@@ -12,13 +12,14 @@ new Vue({
   el: '#welcome',
   template: `
     <div class='container-fluid'>
-      <div>
-      	<h1 class='global-font text-center transparent embossed-text'> Welcome! </h1> 
-        <h1 class='global-font text-center transparent embossed-text'> Bienvenido! </h1>
+      <div id='welcome'>
+      	<h1 class='global-font text-center transparent embossed-text'> We<span id='offset'>l</span>come! </h1>
+        <hr class='hr-index'> 
+        <h1 class='global-font text-center transparent embossed-text'> Bienve<span id='offset'>n</span>ido! </h1>
       </div>
       <div class='btn-div'>
-		    <button type='button' class='global-font button-pink btn-lg'> English </button>
-        <button type='button' class='global-font button-pink btn-lg'> Español </button>
+		    <button type='button' class='global-font button-pink btn-lg button-font'> English </button>
+        <button type='button' class='global-font button-pink btn-lg button-font'> Español </button>
       </div>
       <div id='countdown' class='global-font btn-div'>
       </div>
