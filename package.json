@@ -1,0 +1,19 @@
+{
+  "name": "fudo",
+  "version": "1.0.0",
+  "description": "An web application for world recipes",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Edgardo Cuello",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-vue": "^4.0.11",
+    "mongodb": "^2.2.31",
+    "vue": "^2.4.4"
+  }
+}
