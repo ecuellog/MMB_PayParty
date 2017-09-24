@@ -6,8 +6,9 @@ var app = new Vue({
   data: {
     name: 'Edgardo'
   }
-})
+});
 
+/* Views */
 new Vue({
   el: '#welcome',
   template: `
@@ -25,8 +26,33 @@ new Vue({
       </div>
     </div>
   `
-})
+});
 
+/*new Vue({
+  el: '#spanish',
+  template: `
+    <div class='container-fluid'>
+      <h1> Spanish View </h1>
+    </div>
+  `
+}):
+
+new Vue({
+  el: '#english',
+  template: `
+    <div class='container-fluid'>
+      <h1> English View </h1>
+    </div>
+  `
+});*/
+
+/* Components */
+/*
+ * Components here 
+ *
+ */
+
+/* Functions */
 // Set the date we're counting down to
 var countDownDate = new Date("Nov 11, 2017 15:37:25").getTime();
 
@@ -60,4 +86,15 @@ var x = setInterval(function() {
  * will include all components
  * just include with script tag within html view.
  */
+
+/* Notes:
+*   - Nav bar para cambiar de idioma
+*   - Explicacion del lugar
+*   - Link for place "chekealo aqui" "Check it out here" click.
+*   - Explicar dos opciones
+*   - Llenar forma con nombre y ensenar lista de invitados (quien va quien no).
+*   - hacer click en una opcion "radio button maybe"
+*   - boton de paypal
+*   - informacion de interac de papa
+/*
 
