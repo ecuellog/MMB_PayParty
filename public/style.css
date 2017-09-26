@@ -9,6 +9,24 @@ h1{
   letter-spacing: 5px;
 }
 
+p{
+  font-size: 26px;
+}
+
+a{
+  color: white;
+  font-weight: bold;
+}
+
+a:hover{
+  color: red;
+}
+
+#payButton{
+  margin: auto;
+  width: 50%;
+}
+
 #welcome{
   padding-top: 300px;
 }
@@ -52,7 +70,7 @@ h1{
 }
 
 .global-font{
-	color: #8b26c1;	
+	color: white;	
 	font-family: Metrophobic;
 }
 
@@ -69,6 +87,11 @@ h1{
 .fudo-home{
 	font-size: 24px;
 }
+
+.party-info{
+  padding: 100px;
+}
+
 a:hover, a:active{
 	color: #49274A;
 }
