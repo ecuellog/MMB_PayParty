@@ -22,9 +22,36 @@ a:hover{
   color: red;
 }
 
+ul.nav-bar{
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    padding: 20px;
+    z-index: 1;
+}
+
+li.nav-bar{
+  display: inline;
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a:hover{
+  background-color: #555;
+  color: white;
+}
+
+li.party-features{
+  font-size: 20px;
+  color: white;
+}
+
 #payButton{
   margin: auto;
-  width: 50%;
+  width: 30%;
 }
 
 #welcome{
@@ -34,9 +61,10 @@ a:hover{
 #countdown{
   font-size: 70px;
   background-color: black;
-  width: 40%;
+  width: 50%;
   height: 80px;
   text-align: center;
+  margin-top: 100px;
 }
 
 .btn-div{
@@ -78,10 +106,26 @@ a:hover{
   font-size: 40px;
 }
 
-.embossed-text{
+.nav-link{
+  font-size: 24px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-decoration: none;
+}
+
+.f-right{
+  float: right;
+}
+
+.embossed-text, .nav-link:hover{
   color: white;
   text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #8b26c1, 0 0 30px #8b26c1, 0 0 40px #8b26c1, 0 0 55px #8b26c1, 0 0 75px #8b26c1;
   animation: text-flicker 3s linear 0s;
+  text-decoration: none;
+}
+
+.nav-link:hover{
+  background-color: black;
 }
 
 .fudo-home{
@@ -92,9 +136,10 @@ a:hover{
   padding: 100px;
 }
 
-a:hover, a:active{
-	color: #49274A;
+.font-black{
+  color: black;
 }
+
 a:focus{
 	color: black;
 }

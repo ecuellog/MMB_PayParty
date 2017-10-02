@@ -19,11 +19,10 @@ new Vue({
         <h1 class='global-font text-center transparent embossed-text'> Bienve<span id='offset'>n</span>ido! </h1>
       </div>
       <div class='btn-div'>
-		    <button type='button' class='global-font button-pink btn-lg button-font'> English </button>
+		    <button type='button' onclick='window.location.href="/english"' class='global-font button-pink btn-lg button-font'> English </button>
         <button type='button' onclick='window.location.href="/spanish"' class='global-font button-pink btn-lg button-font'> Español </button>
       </div>
-      <div id='countdown' class='global-font btn-div'>
-      </div>
+      <div id='countdown' class='global-font btn-div'></div>
     </div>
   `
 });
@@ -36,11 +35,12 @@ new Vue({
       <div class='party-info'>
         <p class='global-font'>
           Ha empezado la cuenta regresiva para la mejor fiesta del año en Punta Cana. Habran dos fiestas, una para las chicas y otra para los chicos.
-          La fiesta saldra en $116 dolares USD. Tambien esta la opcion de devolverse en el bus de fiestas al hotel, en lo cual costara $77 USD. Puedes ver
-          mas informacion sobre la fiesta <a href='#'>aqui</a>. Nuestro paquete es el blah blah.
+          El costo por persona para la fiesta es $116 dolares USD. Tambien esta la opcion de devolverse en el bus de fiestas al hotel, en lo cual costara $77 USD. Puedes ver
+          mas informacion sobre la fiesta <a href='#'>aqui</a>.
         </p>
         <p class='global-font'> Se puede pagar por paypal haciendo click en "Pay Now" abajo o puedes enviar una transaccion Interac e-transfer al siguiente email
-          ecuellog@gmail.com.
+          ecuellog@gmail.com. <br><br>Para anadirte a la lista de invitados, selecciona la fiesta que quieras asistir, ingresa tu nombre y completa la transaccion. Despues de que la transaccion se verifique, tu nombre aparecera en la lista de invitados.
+        </p>
       </div>
     </div>
   `
@@ -50,10 +50,103 @@ new Vue({
   el: '#english',
   template: `
     <div class='container-fluid'>
-      <h1> English View </h1>
+      <div id='navigation-bar'></div>
+      <div id='countdown' class='global-font btn-div'></div>
+      <div class='party-info'>
+        <p class='global-font'>
+          The countdown to the best bacherlor/bacherlorette party of the year at Punta Cana has started! Join Maria or Martin and have an expectacular night on November 12, 2017. There are two options to choose from so read carefully and make your choice.
+        </p>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <h2 class='global-font'> Man Down / Siren</h2>
+              <ul>
+                <li class='party-features global-font'>Hotel pick-up in Party Bus</li>
+                <li class='party-features global-font'>Open bar and live DJ on-board</li>
+                <li class='party-features global-font'>Host/Hostess with your group</li>
+                <li class='party-features global-font'>Party games</li>
+                <li class='party-features global-font'>Latino staff (security, bartender, waiter)</li>
+                <li class='party-features global-font'>Group photo Downtown Punta Cana</li>
+                <li class='party-features global-font'>Hotel return ride</li>
+              </ul>
+              <h3 class='global-font text-center'> Cost: $77 USD </h3>
+            </div>
+            <div class="col-sm-6">
+              <h2 class='global-font'> Mamitas / Cowgirl</h2>
+              <ul>
+                <li class='party-features global-font'>Hotel pick-up in Party Bus</li>
+                <li class='party-features global-font'>Open bar and live DJ on-board</li>
+                <li class='party-features global-font'>Host/Hostess with your group</li>
+                <li class='party-features global-font'> Striptease show on-board</li>
+                <li class='party-features global-font'>Party games</li>
+                <li class='party-features global-font'>Latino staff (security, bartender, waiter)</li>
+                <li class='party-features global-font'>Group photo Downtown Punta Cana</li>
+                <li class='party-features global-font'> ORO nightclub at Hard Rock Hotel & Casino / CONGO bar (VIP, No cover charge, reserved table)</li>
+                <li class='party-features global-font'>Hotel return ride</li>
+              </ul>
+              <h3 class='global-font text-center'> Cost: $116 USD </h3>
+            </div>
+          </div>
+        </div>
+        <p class='global-font'>
+          The bacherlor and bacherlorette party buses will be separate but will reunite at the end of the night. You can check out more info about the party <a href='#'>here</a>
+        </p>
+        <hr class='hr-index'>
+        <p class='global-font'> 
+          To attend the party, fill out your information and pay through PayPal by clicking the "Pay Now" button below. <br> You can also send an interac transfer to <b>ecuellog@gmail.com</b>.
+        </p>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-sm-6'>
+              <h2 class='global-font text-center'> PayPal </h2>
+              <div id='paypal-btn' class='text-center'></div>
+            </div>
+            <div class='col-sm-6'>
+              <h2 class='global-font text-center'> Interac E-transfer </h2>
+              <form method='POST' id='interac-english' action='/newattend' onsubmit='return validateForm(english, interac)' class='global-font'>
+                First Name:
+                <input class='font-black' type='text' name='firstname'><br>
+                Last Name:
+                <input class='font-black' type='text' name='lastname'><br><br>
+                Which party are you attending?<br>
+                <select class='font-black' name="party"> 
+                  <option value="bacherlor"> Bacherlor </option>
+                  <option value="bacherlorette"> Bacherlorette </option>
+                </select><br>
+                Select your party package<br>
+                <select class='font-black' name="party_package"> 
+                  <option value="pr77"> Siren/Man Down ($77) </option>
+                  <option value="pr116" selected> Cowgirl/Mamitas ($116) </option>
+                </select>
+                <input class='font-black' type='submit' value='Submit'>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   `
 });
+
+/* Components */
+new Vue({
+  el: '#invite-form-english',
+  template: `
+    <div>
+      <form>
+        First Name: 
+        <input type="text" name="firstname"><br>
+        Last Name: 
+        <input type="text" name="lastname"><br>
+        Which party are you attending?
+        <select name="party"> 
+          <option value="bacherlor"> Bacherlor </option>
+          <option value="bacherlorette"> Bacherlorette </option>
+        </select>
+      </form>
+    </div>
+  `
+})
 
 new Vue({
   el: '#paypal-btn',
@@ -77,15 +170,23 @@ new Vue({
   `
 })
 
-/* Components */
-/*
- * Components here 
- *
- */
+new Vue({
+  el: '#navigation-bar',
+  template: `
+    <div>
+      <ul class='nav-bar'>
+        <li class='nav-bar'><a class="global-font nav-link" href="/"> Home </a></li>
+        <li class='nav-bar'><a class="global-font nav-link f-right" href="/english"> English </a></li>
+        <li class='nav-bar'><a class="global-font nav-link f-right" href="/spanish"> Español </a></li>
+      </ul>
+    </div>
+  `
+})
+
 
 /* Functions */
 // Set the date we're counting down to
-var countDownDate = new Date("Nov 11, 2017 15:37:25").getTime();
+var countDownDate = new Date("Nov 12, 2017 18:37:25").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -112,6 +213,32 @@ var x = setInterval(function() {
     document.getElementById("countdown").innerHTML = "EXPIRED";
   }
 }, 1000);
+
+// Validate forms for completion
+function validateForm(language, form) {
+  if(language == "english"){
+    if(form == "interac"){
+      var firstname = document.forms["interac-english"]["firstname"].value;
+      var lastname = document.forms["interac-english"]["lastname"].value;
+
+      if (firstname == "" || lastname == "") {
+          alert("Please fill out your name");
+          return false;
+      }
+    }
+  }
+  else if(language == "spanish"){
+    if(form == "interac"){
+      var firstname = document.forms["interac-spanish"]["firstname"].value;
+      var lastname = document.forms["interac-spanish"]["lastname"].value;
+
+      if (firstname == "" || lastname == "") {
+          alert("Por favor ingrese su nombre y apellido");
+          return false;
+      }
+    }
+  }
+}
 /* 
  * Notes: component.js
  * will include all components
