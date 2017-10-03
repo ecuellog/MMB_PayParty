@@ -15,6 +15,7 @@
     "express": "^4.15.4",
     "express-vue": "^4.0.11",
     "mongodb": "^2.2.31",
+    "secure-random-string": "^1.0.0",
     "vue": "^2.4.4"
   }
 }

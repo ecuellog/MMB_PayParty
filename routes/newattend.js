@@ -11,6 +11,7 @@ router.get('/', function(req, res, next){
 
 router.post('/', function(req, res, next){
 	var attendee = {
+		sessionID: req.body.sessionID,
 		firstname: req.body.firstname,
 		lastname: req.body.lastname,
 		party: req.body.party,
