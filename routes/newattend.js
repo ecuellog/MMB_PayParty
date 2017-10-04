@@ -15,7 +15,7 @@ router.post('/', function(req, res, next){
 		firstname: req.body.firstname,
 		lastname: req.body.lastname,
 		party: req.body.party,
-		partypackage: req.body.partypackage,
+		partypackage: req.body.party_package,
 		paid: false
 	};
 
@@ -23,7 +23,7 @@ router.post('/', function(req, res, next){
 		assert.equal(null, err);
 		db.collection('attendees').insertOne(attendee, function(err, result){
 			assert.equal(null, err);
-			console.log('New Attendee: ' + attendee.firstname + ' ' + attendee.lastname);
+			console.log('New Attendee: ' + JSON.stringify(attendee));
 			db.close();
 		});
 	});

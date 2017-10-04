@@ -20,3 +20,8 @@ function setCookie(cname, cvalue, exdays) {
     var expires = "expires="+ d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
+
+function sessionIdToForms_E(){
+	document.forms['interac-english']['sessionID'].value = readCookie('sessionID');
+	document.forms['paypal-english']['sessionID'].value = readCookie('sessionID');
+}

@@ -108,7 +108,7 @@ new Vue({
                 <input class='font-black' type='text' name='firstname'><br>
                 Last Name:
                 <input class='font-black' type='text' name='lastname'><br><br>
-                <input id='sessionID' type='hidden'>
+                <input id='sessionID' name='sessionID' type='text' value='hello'>
                 Which party are you attending?<br>
                 <select class='font-black' name="party"> 
                   <option value="bacherlor"> Bacherlor </option>
@@ -135,7 +135,7 @@ new Vue({
   el: '#paypal-btn',
   template:`
     <div id='payButton'>
-      <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class='global-font'>
+      <form id='paypal-english' action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class='global-font'>
         <input type="hidden" name="cmd" value="_s-xclick">
         <input type="hidden" name="hosted_button_id" value="NYYQB6PGDZ2KA">
         First Name:
@@ -179,7 +179,6 @@ new Vue({
 
 /* Functions */
 //Set sessionID from cookie into input fields
-document.getElementById('sessionID').value = readCookie('sessionId');
 
 // Set the date we're counting down to
 var countDownDate = new Date("Nov 12, 2017 18:37:25").getTime();
@@ -206,7 +205,7 @@ var x = setInterval(function() {
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("countdown").innerHTML = "EXPIRED";
+    document.getElementById("countdown").innerHTML = "The time is HERE!";
   }
 }, 1000);
 
