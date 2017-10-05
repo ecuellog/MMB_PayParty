@@ -21,7 +21,65 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
-function sessionIdToForms_E(){
-	document.forms['interac-english']['sessionID'].value = readCookie('sessionID');
-	document.forms['paypal-english']['sessionID'].value = readCookie('sessionID');
+function sessionIdToForms(language){
+	document.forms["interac-" + language]["sessionID"].value = readCookie("sessionID");
+	document.forms["paypal-" + language]["sessionID"].value = readCookie("sessionID");
+}
+
+function submitPaypal(language){
+	console.log("hey yall");
+	formValidated = validateForm('paypal', language);
+	console.log(formValidated.toString());
+	if(formValidated){
+		var params = {
+			firstname: document.forms["paypal-" + language]["firstname"].value,
+			lastname: document.forms["paypal-" + language]["lastname"].value,
+			sessionID: document.forms["paypal-" + language]["sessionID"].value,
+			party: document.forms["paypal-" + language]["party"].value,
+			party_package: document.forms["paypal-" + language]["os0"].value
+		};
+
+		post("/newattend", params);
+		console.log("newattend added to database");
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function post(path, params) {
+    var method = "post"; // Set method to post.
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form.appendChild(hiddenField);
+         }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
+
+// Validate forms for completion
+function validateForm(form, language) {
+	var firstname = document.forms[form + "-" + language]["firstname"].value;
+	var lastname = document.forms[form + "-" + language]["lastname"].value;
+
+	if (firstname == "" || lastname == "") {
+	  alert("Please fill out your full name");
+	  return false;
+	} else {
+		return true;
+	}
 }

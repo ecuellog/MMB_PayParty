@@ -103,7 +103,7 @@ new Vue({
             </div>
             <div class='col-sm-6'>
               <h2 class='global-font text-center'> Interac E-transfer </h2>
-              <form method='POST' id='interac-english' action='/newattend' onsubmit='return validateForm(english, interac)' class='global-font'>
+              <form method='POST' id='interac-english' action='/newattend' onsubmit='return validateForm("interac", "english")' class='global-font'>
                 First Name:
                 <input class='font-black' type='text' name='firstname'><br>
                 Last Name:
@@ -116,8 +116,8 @@ new Vue({
                 </select><br>
                 Select your party package<br>
                 <select class='font-black' name="party_package">
-                  <option value="pr77"> Siren/Man Down ($77) </option>
-                  <option value="pr116" selected> Cowgirl/Mamitas ($116) </option>
+                  <option value="Siren/Man Down"> Siren/Man Down ($77) </option>
+                  <option value="Cowgirl/Mamitas" selected> Cowgirl/Mamitas ($116) </option>
                 </select>
                 <input class='font-black' type='submit' value='Submit'>
               </form>
@@ -135,14 +135,14 @@ new Vue({
   el: '#paypal-btn',
   template:`
     <div id='payButton'>
-      <form id='paypal-english' action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" class='global-font'>
+      <form id='paypal-english' action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return submitPaypal('english')" method="post" target="_top" class='global-font'>
         <input type="hidden" name="cmd" value="_s-xclick">
         <input type="hidden" name="hosted_button_id" value="NYYQB6PGDZ2KA">
         First Name:
         <input class='font-black' type='text' name='firstname'><br>
         Last Name:
         <input class='font-black' type='text' name='lastname'><br><br>
-        <input id='sessionID' type='hidden'>
+        <input id='sessionID' name='sessionID' type='hidden'>
         Which party are you attending?<br>
         <select class='font-black' name="party"> 
           <option value="bacherlor"> Bacherlor </option>
@@ -209,31 +209,6 @@ var x = setInterval(function() {
   }
 }, 1000);
 
-// Validate forms for completion
-function validateForm(language, form) {
-  if(language == "english"){
-    if(form == "interac"){
-      var firstname = document.forms["interac-english"]["firstname"].value;
-      var lastname = document.forms["interac-english"]["lastname"].value;
-
-      if (firstname == "" || lastname == "") {
-          alert("Please fill out your name");
-          return false;
-      }
-    }
-  }
-  else if(language == "spanish"){
-    if(form == "interac"){
-      var firstname = document.forms["interac-spanish"]["firstname"].value;
-      var lastname = document.forms["interac-spanish"]["lastname"].value;
-
-      if (firstname == "" || lastname == "") {
-          alert("Por favor ingrese su nombre y apellido");
-          return false;
-      }
-    }
-  }
-}
 /* 
  * Notes: component.js
  * will include all components
