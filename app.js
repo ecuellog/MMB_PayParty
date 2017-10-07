@@ -10,6 +10,11 @@ var newattend = require('./routes/newattend.js');
 
 var app = express();
 
+//public directory setup
+app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js'))); // redirect bootstrap JS
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css'))); // redirect bootstrap CSS
+
 //bodyparser stuff
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -18,11 +23,6 @@ app.use(bodyParser.json());
 app.set('views', path.join(__dirname, '/views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-
-//public directory setup
-app.use('/public', express.static(path.join(__dirname, 'public')));
-app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js'))); // redirect bootstrap JS
-app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css'))); // redirect bootstrap CSS
 
 //router setup
 app.use('/', index);

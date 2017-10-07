@@ -39,7 +39,10 @@ function submitPaypal(language){
 			party_package: document.forms["paypal-" + language]["os0"].value
 		};
 
-		post("/newattend", params);
+		/*makeForm("toNewattend" ,"/newattend", params);
+		$('#toNewattend').submit(function(e){
+			e.preventDefault();
+		});*/
 		console.log("newattend added to database");
 		return true;
 	} else {
@@ -47,7 +50,8 @@ function submitPaypal(language){
 	}
 }
 
-function post(path, params) {
+//Makes a form on the current page
+function makeForm(id, path, params) {
     var method = "post"; // Set method to post.
 
     // The rest of this code assumes you are not using a library.
@@ -55,6 +59,7 @@ function post(path, params) {
     var form = document.createElement("form");
     form.setAttribute("method", method);
     form.setAttribute("action", path);
+    form.setAttribute("id", id);
 
     for(var key in params) {
         if(params.hasOwnProperty(key)) {
@@ -68,7 +73,7 @@ function post(path, params) {
     }
 
     document.body.appendChild(form);
-    form.submit();
+    //form.submit();
 }
 
 // Validate forms for completion

@@ -59,7 +59,7 @@ new Vue({
         <div class="container">
           <div class="row">
             <div class="col-sm-6">
-              <h2 class='global-font'> Man Down / Siren</h2>
+              <h2 class='global-font'> Bacherlor/Bacherlorette Basic Package </h2>
               <ul>
                 <li class='party-features global-font'>Hotel pick-up in Party Bus</li>
                 <li class='party-features global-font'>Open bar and live DJ on-board</li>
@@ -72,7 +72,7 @@ new Vue({
               <h3 class='global-font text-center'> Cost: $77 USD </h3>
             </div>
             <div class="col-sm-6">
-              <h2 class='global-font'> Mamitas / Cowgirl</h2>
+              <h2 class='global-font'> Bacherlor/Bacherlorette Plus Package </h2>
               <ul>
                 <li class='party-features global-font'>Hotel pick-up in Party Bus</li>
                 <li class='party-features global-font'>Open bar and live DJ on-board</li>
@@ -103,12 +103,12 @@ new Vue({
             </div>
             <div class='col-sm-6'>
               <h2 class='global-font text-center'> Interac E-transfer </h2>
-              <form method='POST' id='interac-english' action='/newattend' onsubmit='return validateForm("interac", "english")' class='global-font'>
-                First Name:
+              <form method='POST' id='interac-english' action='/newattend' onsubmit='return validateForm("interac", "english")' class='global-font text-center'>
+                First Name:<br>
                 <input class='font-black' type='text' name='firstname'><br>
-                Last Name:
+                Last Name:<br>
                 <input class='font-black' type='text' name='lastname'><br><br>
-                <input id='sessionID' name='sessionID' type='text' value='hello'>
+                <input id='sessionID' name='sessionID' type='hidden'>
                 Which party are you attending?<br>
                 <select class='font-black' name="party"> 
                   <option value="bacherlor"> Bacherlor </option>
@@ -116,8 +116,8 @@ new Vue({
                 </select><br>
                 Select your party package<br>
                 <select class='font-black' name="party_package">
-                  <option value="Siren/Man Down"> Siren/Man Down ($77) </option>
-                  <option value="Cowgirl/Mamitas" selected> Cowgirl/Mamitas ($116) </option>
+                  <option value="Siren/Man Down"> Basic Package ($77) </option>
+                  <option value="Cowgirl/Mamitas" selected> Plus Package ($116) </option>
                 </select>
                 <input class='font-black' type='submit' value='Submit'>
               </form>
