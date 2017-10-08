@@ -9,14 +9,15 @@
 		<script src="https://unpkg.com/vue"></script>
     	<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/public/style.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Metrophobic" />
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Metrophobic">
 
 		<div id="navigation-bar"></div>
 		<div class="container-fluid center-p">
-			<h2 class="global-font text-center"> <%- name %> </h2>
-			<p class="global-font text-center"> Your payment was a success</p>
+			<h2 class="global-font text-center"> Guest List</h2>
+			<p class="global-font text-center"> This is the list of the people attending. If the "Paid" field says "No", your payment has not been confirmed yet, so count to a thousand and refresh the page. If it still says no, then you're <b>fucked</b>.</p>
 			<hr>
-			<p class="global-font text-center"> Su pago ha sido procesado</p>
+			<p class="global-font text-center"> Estos son los que van. Si el atributo "Pagado" dice "no", <b>te jodiste</b>. Mentira, solo cuenta hasta mil y recarga la pagina. </p>
+			<p> <%- attendees %> </p>
 		</div>
 
     	<script src="/public/js/vue.js" type="text/javascript"></script>

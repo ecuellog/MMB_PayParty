@@ -8,6 +8,7 @@ var spanish = require('./routes/spanish.js');
 var english = require('./routes/english.js');
 var newattend = require('./routes/newattend.js');
 var paypal = require('./routes/paypal.js');
+var attendees = require('./routes/attendees.js');
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use('/spanish', spanish);
 app.use('/english', english);
 app.use('/newattend', newattend);
 app.use('/paypal', paypal);
+app.use('/attendees', attendees);
 
 app.use(function(req, res, next){
   res.end();
