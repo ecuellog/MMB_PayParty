@@ -27,9 +27,8 @@ function sessionIdToForms(language){
 }
 
 function submitPaypal(language){
-	console.log("hey yall");
 	formValidated = validateForm('paypal', language);
-	console.log(formValidated.toString());
+	//console.log(formValidated.toString());
 	if(formValidated){
 		var params = {
 			firstname: document.forms["paypal-" + language]["firstname"].value,
@@ -39,11 +38,16 @@ function submitPaypal(language){
 			party_package: document.forms["paypal-" + language]["os0"].value
 		};
 
-		/*makeForm("toNewattend" ,"/newattend", params);
-		$('#toNewattend').submit(function(e){
-			e.preventDefault();
-		});*/
-		console.log("newattend added to database");
+		makeForm("toNewattend" ,"/newattend", params);
+		$.ajax({
+			url: '/newattend',
+			type: 'post',
+			data: $('#toNewattend').serialize(),
+			success: function(){
+				alert("You are about to be redirected to PayPal")
+				console.log("newattend added to database");
+			}
+		});
 		return true;
 	} else {
 		return false;

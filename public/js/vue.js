@@ -57,7 +57,7 @@ new Vue({
           The countdown to the best bacherlor/bacherlorette party of the year at Punta Cana has started! Join Maria or Martin and have an expectacular night on November 12, 2017. There are two options to choose from so read carefully and make your choice.
         </p>
         <div class="container">
-          <div class="row">
+          <div class="row padding-bottom-50">
             <div class="col-sm-6">
               <h2 class='global-font'> Bacherlor/Bacherlorette Basic Package </h2>
               <ul>
@@ -103,7 +103,7 @@ new Vue({
             </div>
             <div class='col-sm-6'>
               <h2 class='global-font text-center'> Interac E-transfer </h2>
-              <form method='POST' id='interac-english' action='/newattend' onsubmit='return validateForm("interac", "english")' class='global-font text-center'>
+              <form method='POST' id='interac-english' action='/newattend' onsubmit='return validateForm("interac", "english")' class='global-font interac'>
                 First Name:<br>
                 <input class='font-black' type='text' name='firstname'><br>
                 Last Name:<br>
@@ -118,7 +118,7 @@ new Vue({
                 <select class='font-black' name="party_package">
                   <option value="Siren/Man Down"> Basic Package ($77) </option>
                   <option value="Cowgirl/Mamitas" selected> Plus Package ($116) </option>
-                </select>
+                </select><br><br>
                 <input class='font-black' type='submit' value='Submit'>
               </form>
             </div>
@@ -154,8 +154,8 @@ new Vue({
           <option value="Cowgirl/Mamitas">Cowgirl/Mamitas $116.00 USD</option>
         </select> </td></tr>
         </table>
-        <input type="hidden" name="currency_code" value="USD">
-        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <input type="hidden" name="currency_code" value="USD"><br>
+        <input type="submit" alt="PayPal - The safer, easier way to pay online!" value="Pay Now" class="font-black">
         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
       </form>
     </div>
@@ -175,54 +175,3 @@ new Vue({
     </div>
   `
 })
-
-
-/* Functions */
-//Set sessionID from cookie into input fields
-
-// Set the date we're counting down to
-var countDownDate = new Date("Nov 12, 2017 18:37:25").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get todays date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now an the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown").innerHTML = "The time is HERE!";
-  }
-}, 1000);
-
-/* 
- * Notes: component.js
- * will include all components
- * just include with script tag within html view.
- */
-
-/* Notes:
-*   - Nav bar para cambiar de idioma
-*   - Explicacion del lugar
-*   - Link for place "chekealo aqui" "Check it out here" click.
-*   - Explicar dos opciones
-*   - Llenar forma con nombre y ensenar lista de invitados (quien va quien no).
-*   - hacer click en una opcion "radio button maybe"
-*   - boton de paypal
-*   - informacion de interac de papa
-*/
-

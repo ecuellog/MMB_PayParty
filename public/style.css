@@ -51,7 +51,7 @@ li.party-features{
 
 #payButton{
   margin: auto;
-  width: 30%;
+  width: 40%;
 }
 
 #welcome{
@@ -138,6 +138,15 @@ li.party-features{
 
 .font-black{
   color: black;
+}
+
+.padding-bottom-50{
+  padding-bottom: 50px;
+}
+
+.interac{
+  margin: auto;
+  width: 40%;
 }
 
 a:focus{
