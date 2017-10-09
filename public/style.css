@@ -49,6 +49,17 @@ li.party-features{
   color: white;
 }
 
+table{
+  width: 80%;
+  margin: auto;
+  margin-bottom: 60px;
+}
+
+.table-border{
+  border: 1px solid white;
+  padding: 5px;
+}
+
 #payButton{
   margin: auto;
   width: 40%;

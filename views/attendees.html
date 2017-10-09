@@ -5,7 +5,7 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
-	<body class="page-background">
+	<body class="page-background" onload='displayAttendees()'>
 		<script src="https://unpkg.com/vue"></script>
     	<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/public/style.css" rel="stylesheet">
@@ -17,9 +17,45 @@
 			<p class="global-font text-center"> This is the list of the people attending. If the "Paid" field says "No", your payment has not been confirmed yet, so count to a thousand and refresh the page. If it still says no, then you're <b>fucked</b>.</p>
 			<hr>
 			<p class="global-font text-center"> Estos son los que van. Si el atributo "Pagado" dice "no", <b>te jodiste</b>. Mentira, solo cuenta hasta mil y recarga la pagina. </p>
-			<p> <%- attendees %> </p>
+			<br>
 		</div>
+		<h2 class="global-font text-center"> List of perverts </h2>
+		<table class="global-font table-border">
+			<tbody id="attendee-table" class="table-border">
+				<tr class="table-border">
+					<th class="table-border">Name</th>
+					<th class="table-border">Party</th>
+					<th class="table-border">Package</th>
+					<th class="table-border">Paid</th>
+				</tr>
+			</tbody>
+		</table>
 
+		<script>
+			function displayAttendees(){
+				var attendeeTable = document.getElementById("attendee-table");
+				var attendees = <%- attendees %>;
+				var newAttendee;
+				var paid = "no";
+				var partypackage;
+
+				for(var i = 0; i < attendees.length; i++){
+					attendees[i].paid ? paid = "yes" : paid = "no";
+					if(attendees[i].partypackage == "Siren/Man Down"){
+						partypackage = "Basic";
+					} else {
+						partypackage = "Plus";
+					}
+					newAttendee = document.createElement("tr");
+					newAttendee.innerHTML = 
+						"<td class='table-border'>" + attendees[i].firstname + " " + attendees[i].lastname + "</td>" +
+						"<td class='table-border'>" + attendees[i].party + "</td>" + 
+						"<td class='table-border'>" + partypackage + "</td>" + 
+						"<td class='table-border'>" + paid + "</td>";
+					attendeeTable.appendChild(newAttendee);
+				}
+			}
+		</script>
     	<script src="/public/js/vue.js" type="text/javascript"></script>
     	<script src="/public/js/payvalidation.js" type="text/javascript"></script>
 	</body>

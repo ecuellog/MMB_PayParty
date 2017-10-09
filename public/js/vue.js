@@ -149,10 +149,19 @@ new Vue({
           <option value="bacherlorette"> Bacherlorette </option>
         </select><br>
         <table>
-        <tr><td><input type="hidden" name="on0" value="Party Option">Select your party package</td></tr><tr><td><select name="os0" class='font-black'>
-          <option value="Siren/Man Down">Siren/Man Down $77.00 USD</option>
-          <option value="Cowgirl/Mamitas">Cowgirl/Mamitas $116.00 USD</option>
-        </select> </td></tr>
+          <tr>
+            <td>
+              <input type="hidden" name="on0" value="Party Option">Select your party package
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <select name="os0" class='font-black'>
+                <option value="Siren/Man Down">Siren/Man Down $77.00 USD</option>
+                <option value="Cowgirl/Mamitas">Cowgirl/Mamitas $116.00 USD</option>
+              </select> 
+            </td>
+          </tr>
         </table>
         <input type="hidden" name="currency_code" value="USD"><br>
         <input type="submit" alt="PayPal - The safer, easier way to pay online!" value="Pay Now" class="font-black">
@@ -169,6 +178,7 @@ new Vue({
     <div>
       <ul class='nav-bar'>
         <li class='nav-bar'><a class="global-font nav-link" href="/"> Home </a></li>
+        <li class='nav-bar'><a class="global-font nav-link" href="/attendees"> List </a></li>
         <li class='nav-bar'><a class="global-font nav-link f-right" href="/english"> English </a></li>
         <li class='nav-bar'><a class="global-font nav-link f-right" href="/spanish"> Español </a></li>
       </ul>

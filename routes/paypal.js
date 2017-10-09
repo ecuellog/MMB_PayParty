@@ -38,7 +38,29 @@ router.get('/success', function(req, res, next){
 });
 
 router.get('/failure', function(req, res, next){
-	res.render('paypalFail');
+	// Get sessionID from request cookies
+  var attendee;
+  var cookie = req.headers.cookie;
+  cookie = cookie.split('=');
+  var sessionID = cookie[1];
+  console.log(sessionID);
+
+  mongo.connect(url, function(err, db){
+    assert.equal(null, err);
+    db.collection('attendees').findAndModify(
+      {'sessionID':sessionID},
+      [],
+      {'$set' : {'paid': false}},
+      {'remove': true}
+    )
+    .then(function(result){
+      //attendee = result.value;
+      //attendeeObj = JSON.stringify(attendee);
+      //console.log(attendeeObj);
+      db.close();
+      res.render('paypalFail');
+    });
+  });
 });
 
 module.exports = router;

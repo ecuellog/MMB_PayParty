@@ -16,6 +16,7 @@ router.get('/', function(req, res, next){
 		}, function(){
 			db.close();
 			console.log(resultArray);
+			resultArray = JSON.stringify(resultArray);
 			res.render('attendees', {attendees: resultArray});
 		});
 	});
