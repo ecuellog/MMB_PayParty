@@ -22,6 +22,10 @@ a:hover{
   color: red;
 }
 
+a:active{
+  color: red;
+}
+
 ul.nav-bar{
     list-style-type: none;
     padding: 0;
