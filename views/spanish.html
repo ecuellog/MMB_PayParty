@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title> MM - Despedida Party </title>
+		<title> MM - Despedida </title>
     	<meta name="viewport" content="width=device-width, initial-scale=1">
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
-	<body class="page-background">
+	<body class="page-background" onload="setCookie('sessionID','<%- sessionID %>', 1); sessionIdToForms('english');">
 		<script src="https://unpkg.com/vue"></script>
     	<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/public/style.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Metrophobic" />
 
 		<div id="app">
-			<div id="navigation-bar"></div>
-        	<div id="spanish"></div>
+        	<div id="english"></div>
 		</div>
 
     	<script src="/public/js/vue.js" type="text/javascript"></script>
+    	<script src="/public/js/payvalidation.js" type="text/javascript"></script>
     	<script src="/public/js/countdown.js" type="text/javascript"></script>
-	
+
 	</body>
 </html>
-

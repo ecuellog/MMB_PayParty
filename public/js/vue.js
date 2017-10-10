@@ -31,16 +31,80 @@ new Vue({
   el: '#spanish',
   template: `
     <div class='container-fluid'>
+      <div id='navigation-bar'></div>
       <div id='countdown' class='global-font btn-div'></div>
       <div class='party-info'>
         <p class='global-font'>
-          Ha empezado la cuenta regresiva para la mejor fiesta del año en Punta Cana. Habran dos fiestas, una para las chicas y otra para los chicos.
-          El costo por persona para la fiesta es $116 dolares USD. Tambien esta la opcion de devolverse en el bus de fiestas al hotel, en lo cual costara $77 USD. Puedes ver
-          mas informacion sobre la fiesta <a href='#'>aqui</a>.
+          El conteo regresivo a empezado para la mejor despedida de soltero/a en Punta Cana! Unete a Marisabel o Martin para pasarla de p*** madre el 12 de Noviembre del 2017. Hay dos paquetes para escoger asi que lee bien y escoge tu opcion.
         </p>
-        <p class='global-font'> Se puede pagar por paypal haciendo click en "Pay Now" abajo o puedes enviar una transaccion Interac e-transfer al siguiente email
-          ecuellog@gmail.com. <br><br>Para anadirte a la lista de invitados, selecciona la fiesta que quieras asistir, ingresa tu nombre y completa la transaccion. Despues de que la transaccion se verifique, tu nombre aparecera en la lista de invitados.
+        <div class="container">
+          <div class="row padding-bottom-50">
+            <div class="col-sm-6">
+              <h2 class='global-font'> Despedida de Soltero/a Paquete Basic </h2>
+              <ul>
+                <li class='party-features global-font'>Recogida en el hotel con el Party Bus</li>
+                <li class='party-features global-font'>Barra libre y DJ adentro del bus</li>
+                <li class='party-features global-font'>Anfitrion/a con el grupo</li>
+                <li class='party-features global-font'>Juegos de fiesta</li>
+                <li class='party-features global-font'>Personal latino (seguridad, bartender, mesero/a)</li>
+                <li class='party-features global-font'>Foto en grupo en la ciudad</li>
+                <li class='party-features global-font'>Paseo de regreso al hotel</li>
+              </ul>
+              <h3 class='global-font text-center'> Costo: $77 USD </h3>
+            </div>
+            <div class="col-sm-6">
+              <h2 class='global-font'> Despedida de Soltero/a Paquete Plus </h2>
+              <ul>
+                <li class='party-features global-font'>Recogida en el hotel con el Party Bus</li>
+                <li class='party-features global-font'>Barra libre y DJ adentro del bus</li>
+                <li class='party-features global-font'>Anfitrion/a con el grupo</li>
+                <li class='party-features global-font'>Show de striptease en el bus</li>
+                <li class='party-features global-font'>Juegos de fiesta</li>
+                <li class='party-features global-font'>Personal latino (seguridad, bartender, mesero/a)</li>
+                <li class='party-features global-font'>Foto en grupo en la ciudad</li>
+                <li class='party-features global-font'> Discoteca ORO en el Hard Rock Hotel & Casino / CONGO bar (VIP, sin cuota de entrada, mesa reservada)</li>
+                <li class='party-features global-font'>Paseo de regreso al hotel</li>
+              </ul>
+              <h3 class='global-font text-center'> Costo: $116 USD </h3>
+            </div>
+          </div>
+        </div>
+        <p class='global-font'>
+          Los buses de despedida de soltero y de soltera estaran separados pero se uniran al final de la noche en la discoteca ORO. Chequeate mas informacion sobre los paquetes <a href='#'>aqui</a>.
         </p>
+        <hr class='hr-index'>
+        <p class='global-font'> 
+          Para atender la fiesta, llena tu informacion y paga por paypal haciendo click en el boton "Paga aqui". <br> Tambien puedes transferir el dinero por interac e-transfer al email <b>ecuellog@gmail.com</b> pero tambien debes llenar la forma de Interac para que tu nombre aparezca en la lista.
+        </p>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-sm-6'>
+              <h2 class='global-font text-center'> PayPal </h2>
+              <div id='paypal-btn-spanish' class='text-center'></div>
+            </div>
+            <div class='col-sm-6'>
+              <h2 class='global-font text-center'> Interac E-transfer </h2>
+              <form method='POST' id='interac-spanish' action='/newattend' onsubmit='return validateForm("interac", "spanish")' class='global-font interac'>
+                Nombre:<br>
+                <input class='font-black' type='text' name='firstname'><br>
+                Apellido:<br>
+                <input class='font-black' type='text' name='lastname'><br><br>
+                <input id='sessionID' name='sessionID' type='hidden'>
+                Despedida de?<br>
+                <select class='font-black' name="party"> 
+                  <option value="bacherlor"> Soltero </option>
+                  <option value="bacherlorette"> Soltera </option>
+                </select><br>
+                Elige tu paquete<br>
+                <select class='font-black' name="party_package">
+                  <option value="Siren/Man Down"> Paquete Basico ($77) </option>
+                  <option value="Cowgirl/Mamitas" selected> Paquete Plus ($116) </option>
+                </select><br><br>
+                <input class='font-black' type='submit' value='Submit'>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   `
@@ -54,7 +118,7 @@ new Vue({
       <div id='countdown' class='global-font btn-div'></div>
       <div class='party-info'>
         <p class='global-font'>
-          The countdown to the best bacherlor/bacherlorette party of the year at Punta Cana has started! Join Maria or Martin and have an expectacular night on November 12, 2017. There are two options to choose from so read carefully and make your choice.
+          The countdown to the best bacherlor/bacherlorette party of the year at Punta Cana has started! Join Maria or Martin and have an bitchin' night on November 12, 2017. There are two options to choose from so read carefully and make your choice.
         </p>
         <div class="container">
           <div class="row padding-bottom-50">
@@ -89,7 +153,7 @@ new Vue({
           </div>
         </div>
         <p class='global-font'>
-          The bacherlor and bacherlorette party buses will be separate but will reunite at the end of the night. You can check out more info about the party <a href='#'>here</a>
+          The bacherlor and bacherlorette party buses will be separate but will reunite at the end of the night at the ORO nightclub. You can check out more info about the party <a href='#'>here</a>.
         </p>
         <hr class='hr-index'>
         <p class='global-font'> 
@@ -157,8 +221,49 @@ new Vue({
           <tr>
             <td>
               <select name="os0" class='font-black'>
-                <option value="Siren/Man Down">Siren/Man Down $77.00 USD</option>
-                <option value="Cowgirl/Mamitas">Cowgirl/Mamitas $116.00 USD</option>
+                <option value="Siren/Man Down">Basic $77.00 USD</option>
+                <option value="Cowgirl/Mamitas">Plus $116.00 USD</option>
+              </select> 
+            </td>
+          </tr>
+        </table>
+        <input type="hidden" name="currency_code" value="USD"><br>
+        <input type="submit" alt="PayPal - The safer, easier way to pay online!" value="Pay Now" class="font-black">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+      </form>
+    </div>
+
+  `
+})
+
+new Vue({
+  el: '#paypal-btn-spanish',
+  template:`
+    <div id='payButton'>
+      <form id='paypal-spanish' action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return submitPaypal('spanish')" method="post" target="_top" class='global-font'>
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="NYYQB6PGDZ2KA">
+        Nombre:
+        <input class='font-black' type='text' name='firstname'><br>
+        Apellido:
+        <input class='font-black' type='text' name='lastname'><br><br>
+        <input id='sessionID' name='sessionID' type='hidden'>
+        Despedida de?<br>
+        <select class='font-black' name="party"> 
+          <option value="bacherlor"> Soltero </option>
+          <option value="bacherlorette"> Soltera </option>
+        </select><br>
+        <table>
+          <tr>
+            <td>
+              <input type="hidden" name="on0" value="Party Option">Elige tu paquete
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <select name="os0" class='font-black'>
+                <option value="Siren/Man Down">Basico $77.00 USD</option>
+                <option value="Cowgirl/Mamitas">Plus $116.00 USD</option>
               </select> 
             </td>
           </tr>
