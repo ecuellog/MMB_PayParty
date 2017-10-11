@@ -170,6 +170,10 @@ table{
   width: 40%;
 }
 
+.del-margin{
+  margin: 0px;
+}
+
 a:focus{
 	color: black;
 }

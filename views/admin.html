@@ -7,29 +7,25 @@
 	</head>
 	<body class="page-background" onload='displayAttendees()'>
 		<script src="https://unpkg.com/vue"></script>
-    	<link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/public/style.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Metrophobic">
 
 		<div id="navigation-bar"></div>
 		<div class="container-fluid center-p">
-			<h1 class="global-font text-center"> Guest List</h1>
-			<p class="global-font text-center"> This is the list of the people attending. If the "Paid" field says "No", your payment has not been confirmed yet, so count to a thousand and refresh the page. If it still says no, then <b>you're screwed my friend</b>.</p>
-			<hr>
-			<p class="global-font text-center"> Estos son los que van. Si el atributo "Pagado" dice "no", <b>te has jodido</b>. Mentira, solo cuenta hasta mil y recarga la pagina. </p>
-			<br>
+			<h2 class="global-font text-center"> List of Perverts </h2>
+			<table class="global-font table-border">
+				<tbody id="attendee-table" class="table-border">
+					<tr class="table-border">
+						<th class="table-border">Name</th>
+						<th class="table-border">Party</th>
+						<th class="table-border">Package</th>
+						<th class="table-border">Paid</th>
+						<th class="table-border">RM</th>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-		<h2 class="global-font text-center"> List of Perverts </h2>
-		<table class="global-font table-border">
-			<tbody id="attendee-table" class="table-border">
-				<tr class="table-border">
-					<th class="table-border">Name</th>
-					<th class="table-border">Party</th>
-					<th class="table-border">Package</th>
-					<th class="table-border">Paid</th>
-				</tr>
-			</tbody>
-		</table>
 
 		<script>
 			function displayAttendees(){
@@ -38,6 +34,8 @@
 				var newAttendee;
 				var paid = "no";
 				var partypackage;
+				var paidToggle;
+				var delButton;
 
 				for(var i = 0; i < attendees.length; i++){
 					attendees[i].paid ? paid = "yes" : paid = "no";
@@ -46,12 +44,18 @@
 					} else {
 						partypackage = "Plus";
 					}
+
+					paidToggle = "<button type='button' onclick='submitToggle(\"" + attendees[i].sessionID + "\", \"" + attendees[i].paid + "\")'><span class='glyphicon glyphicon-refresh'></span></button>";
+
+					delButton = "<button type='button' onclick='submitDelete(\"" + attendees[i].sessionID + "\")'><span class='glyphicon glyphicon-trash'></span></button>";
+
 					newAttendee = document.createElement("tr");
 					newAttendee.innerHTML = 
 						"<td class='table-border'>" + attendees[i].firstname + " " + attendees[i].lastname + "</td>" +
 						"<td class='table-border'>" + attendees[i].party + "</td>" + 
 						"<td class='table-border'>" + partypackage + "</td>" + 
-						"<td class='table-border'>" + paid + "</td>";
+						"<td class='table-border'>" + paid + " " + paidToggle + "</td>" +
+						"<td class='table-border'>" + delButton + "</td>";
 					attendeeTable.appendChild(newAttendee);
 				}
 			}

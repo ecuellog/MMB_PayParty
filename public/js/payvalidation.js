@@ -44,7 +44,7 @@ function submitPaypal(language){
 			type: 'post',
 			data: $('#toNewattend').serialize(),
 			success: function(){
-				alert("You are about to be redirected to PayPal")
+                language == "spanish" ? alert("Seras redireccionado a la pagina de PayPal") : alert("You are about to be redirected to PayPal")
 				console.log("newattend added to database");
 			}
 		});
@@ -52,6 +52,18 @@ function submitPaypal(language){
 	} else {
 		return false;
 	}
+}
+
+//Toggles the 'paid' field on the selected attendee
+function submitToggle(sessionID, paid){
+    makeForm("toggle", "/admin/paidToggle", {sessionID: sessionID, paid: paid});
+    document.getElementById("toggle").submit();
+}
+
+//Deletes the selected attendee from database
+function submitDelete(sessionID){
+    makeForm("delete", "/admin/delete", {sessionID: sessionID});
+    document.getElementById("delete").submit();
 }
 
 //Makes a form on the current page
@@ -86,8 +98,12 @@ function validateForm(form, language) {
 	var lastname = document.forms[form + "-" + language]["lastname"].value;
 
 	if (firstname == "" || lastname == "") {
-	  alert("Please fill out your full name");
-	  return false;
+        if(language == "spanish"){
+            alert("Llena tu nombre y apellido");
+        } else {
+	       alert("Please fill out your full name");
+        }
+        return false;
 	} else {
 		return true;
 	}

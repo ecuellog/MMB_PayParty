@@ -40,7 +40,7 @@ new Vue({
           <option value="bacherlor"> Bacherlor </option>
           <option value="bacherlorette"> Bacherlorette </option>
         </select><br>
-        <table>
+        <table class="del-margin">
           <tr>
             <td>
               <input type="hidden" name="on0" value="Party Option">Select your party package
@@ -49,8 +49,8 @@ new Vue({
           <tr>
             <td>
               <select name="os0" class='font-black'>
-                <option value="Siren/Man Down">Basic $77.00 USD</option>
-                <option value="Cowgirl/Mamitas">Plus $116.00 USD</option>
+                <option value="Siren/Man Down">Basic Package $80.00 USD</option>
+                <option value="Cowgirl/Mamitas">Plus Package $121.00 USD</option>
               </select> 
             </td>
           </tr>
@@ -68,12 +68,12 @@ new Vue({
   el: '#paypal-btn-spanish',
   template:`
     <div id='payButton'>
-      <form id='paypal-spanish' action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return submitPaypal('spanish')" method="post" target="_top" class='global-font'>
+      <form id='paypal-spanish' action="https://www.sandbox.paypal.com/cgi-bin/webscr" onsubmit="return submitPaypal('spanish')" method="post" target="_top" class='global-font'>
         <input type="hidden" name="cmd" value="_s-xclick">
         <input type="hidden" name="hosted_button_id" value="NYYQB6PGDZ2KA">
-        Nombre:
+        Nombre:<br>
         <input class='font-black' type='text' name='firstname'><br>
-        Apellido:
+        Apellido:<br>
         <input class='font-black' type='text' name='lastname'><br><br>
         <input id='sessionID' name='sessionID' type='hidden'>
         Despedida de?<br>
@@ -81,7 +81,7 @@ new Vue({
           <option value="bacherlor"> Soltero </option>
           <option value="bacherlorette"> Soltera </option>
         </select><br>
-        <table>
+        <table class="del-margin">
           <tr>
             <td>
               <input type="hidden" name="on0" value="Party Option">Elige tu paquete
@@ -90,14 +90,14 @@ new Vue({
           <tr>
             <td>
               <select name="os0" class='font-black'>
-                <option value="Siren/Man Down">Basico $77.00 USD</option>
-                <option value="Cowgirl/Mamitas">Plus $116.00 USD</option>
+                <option value="Siren/Man Down">Basico $80.00 USD</option>
+                <option value="Cowgirl/Mamitas">Plus $121.00 USD</option>
               </select> 
             </td>
           </tr>
         </table>
         <input type="hidden" name="currency_code" value="USD"><br>
-        <input type="submit" alt="PayPal - The safer, easier way to pay online!" value="Pay Now" class="font-black">
+        <input type="submit" alt="PayPal - The safer, easier way to pay online!" value="Paga aqui" class="font-black">
         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
       </form>
     </div>
