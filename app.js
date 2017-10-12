@@ -10,6 +10,8 @@ var newattend = require('./routes/newattend.js');
 var paypal = require('./routes/paypal.js');
 var attendees = require('./routes/attendees.js');
 var admin = require('./routes/admin.js');
+var weddingInvite = require('./routes/wedding-invite.js');
+var interac = require('./routes/interac.js');
 
 var app = express();
 
@@ -35,6 +37,8 @@ app.use('/newattend', newattend);
 app.use('/paypal', paypal);
 app.use('/attendees', attendees);
 app.use('/admin', admin);
+app.use('/wedding-invite', weddingInvite);
+app.use('/interac', interac);
 
 app.use(function(req, res, next){
   res.end();
