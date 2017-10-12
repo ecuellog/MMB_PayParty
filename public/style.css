@@ -1,7 +1,8 @@
 body {
-  background-image: url("drank.jpg");
+  background-image: url("hurtme.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-color: #7517d8;
 }
 
 h1{
@@ -70,7 +71,7 @@ table{
 }
 
 #welcome{
-  padding-top: 300px;
+  padding-top: 290px;
 }
 
 #countdown{
@@ -80,6 +81,19 @@ table{
   height: 80px;
   text-align: center;
   margin-top: 100px;
+}
+
+#wedding-vid{
+  margin: auto;
+  width: 900px;
+}
+
+.container-fluid{
+  padding: 0px;
+}
+
+.footer{
+  padding-top: 30px;
 }
 
 .btn-div{
@@ -92,13 +106,13 @@ table{
 }
 
 .button-pink{
-	background-color: transparent;
-  border-color: #8b26c1;
+	background-color: black;
+  border-color: white;
   border-style: solid;
-  border-width: 5px;
+  border-width: 3px;
   float: none;
   display: inline;
-  padding: 20px;
+  padding: 8px 15px 8px 15px;
   margin: 30px;
   border-radius: 0;
 }
@@ -118,7 +132,7 @@ table{
 }
 
 .button-font{
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .nav-link{

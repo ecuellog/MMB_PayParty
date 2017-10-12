@@ -68,7 +68,7 @@ new Vue({
   el: '#paypal-btn-spanish',
   template:`
     <div id='payButton'>
-      <form id='paypal-spanish' action="https://www.sandbox.paypal.com/cgi-bin/webscr" onsubmit="return submitPaypal('spanish')" method="post" target="_top" class='global-font'>
+      <form id='paypal-spanish' action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return submitPaypal('spanish')" method="post" target="_top" class='global-font'>
         <input type="hidden" name="cmd" value="_s-xclick">
         <input type="hidden" name="hosted_button_id" value="NYYQB6PGDZ2KA">
         Nombre:<br>
@@ -115,6 +115,15 @@ new Vue({
         <li class='nav-bar'><a class="global-font nav-link f-right" href="/english"> English </a></li>
         <li class='nav-bar'><a class="global-font nav-link f-right" href="/spanish"> Español </a></li>
       </ul>
+    </div>
+  `
+})
+
+new Vue({
+  el: '#footer',
+  template: `
+    <div class='footer'>
+      <h6 class='global-font text-center'>Website made by Edgardo Cuello</h6>
     </div>
   `
 })
