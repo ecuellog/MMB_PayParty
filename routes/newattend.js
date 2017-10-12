@@ -27,7 +27,7 @@ router.post('/', function(req, res, next){
 			db.close();
 		});
 	});
-	res.redirect('/');
+	res.redirect('/interac');
 });
 
 module.exports = router;
