@@ -2,7 +2,6 @@ body {
   background-image: url("hurtme.jpg");
   background-size: cover;
   background-repeat: initial;
-  background-color: #7517d8;
 }
 
 h1{
@@ -101,12 +100,8 @@ table{
   margin: auto;
 }
 
-.page-background{
-	background-color: white;
-}
-
 .button-pink{
-	background-color: black;
+  background-color: black;
   border-color: white;
   border-style: solid;
   border-width: 3px;
@@ -204,7 +199,7 @@ a:focus{
 
   body{
     background-position: -400px -180px;
-    background-repeat: initial;
+    background-color: #211F29;
   }
 
   h1{
