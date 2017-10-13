@@ -27,7 +27,7 @@ new Vue({
   el: '#paypal-btn',
   template:`
     <div id='payButton'>
-      <form id='paypal-english' action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return submitPaypal('english')" method="post" target="_top" class='global-font'>
+      <form id='paypal-english' action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return submitPaypal('english')" method="post" target="_top" class='global-font interac'>
         <input type="hidden" name="cmd" value="_s-xclick">
         <input type="hidden" name="hosted_button_id" value="NYYQB6PGDZ2KA">
         First Name:
@@ -68,7 +68,7 @@ new Vue({
   el: '#paypal-btn-spanish',
   template:`
     <div id='payButton'>
-      <form id='paypal-spanish' action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return submitPaypal('spanish')" method="post" target="_top" class='global-font'>
+      <form id='paypal-spanish' action="https://www.paypal.com/cgi-bin/webscr" onsubmit="return submitPaypal('spanish')" method="post" target="_top" class='global-font interac'>
         <input type="hidden" name="cmd" value="_s-xclick">
         <input type="hidden" name="hosted_button_id" value="NYYQB6PGDZ2KA">
         Nombre:<br>

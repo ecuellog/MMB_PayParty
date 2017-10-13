@@ -196,6 +196,79 @@ a:focus{
   animation: letter-flicker 2s linear 0s;
 }
 
+@media (max-width: @screen-xs-max) {
+
+}
+
+@media (max-width: 500px) {
+
+  h1{
+    font-size: 30px;
+  }
+
+  #countdown{
+    font-size: 75px;
+  }
+
+  .button-pink{
+    border-width: 2px;
+    float: none;
+    display: inline;
+    padding: 8px 15px 8px 15px;
+    margin: 30px;
+    margin-bottom: -30px;
+    border-radius: 0;
+  }
+
+  .button-font{
+    font-size: 15px;
+  }
+
+  #welcome{
+    padding-top: 40px;
+  }
+
+  ul.nav-bar{
+    width: 100%;
+    padding: 15px;
+    z-index: 1;
+  }
+
+  li.nav-bar{
+    padding: 4px 4px;
+    font-size: 20px;
+  }
+  .nav-link{
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  p{
+    font-size: 14px;
+  }
+  .party-info{
+    padding: 50px;
+  }
+  h2{
+    font-size: 18px;
+  }
+  li.party-features{
+    font-size: 14px;
+  }
+  .interac{
+    margin: auto;
+    width: 155px;
+  }
+  #payButton{
+    padding-bottom: 60px;
+    margin:auto;
+    width: 155px;
+  }
+  .col-sm-6{
+    padding-top: 20px;
+  }
+}
+
 @keyframes text-flicker {
   0% {
     opacity:0.1;
