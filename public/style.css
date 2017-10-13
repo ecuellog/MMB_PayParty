@@ -1,7 +1,7 @@
 body {
   background-image: url("hurtme.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: initial;
   background-color: #7517d8;
 }
 
@@ -200,10 +200,19 @@ a:focus{
 
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
+
+  body{
+    background-position: -400px -180px;
+    background-repeat: initial;
+  }
 
   h1{
     font-size: 30px;
+  }
+
+  td{
+    font-size: 12px;
   }
 
   #countdown{
@@ -230,13 +239,12 @@ a:focus{
 
   ul.nav-bar{
     width: 100%;
-    padding: 15px;
+    padding: 12px;
     z-index: 1;
   }
 
   li.nav-bar{
-    padding: 4px 4px;
-    font-size: 20px;
+    padding: 4px;
   }
   .nav-link{
     font-size: 16px;
