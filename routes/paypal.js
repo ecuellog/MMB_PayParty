@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 var mongo = require('mongodb');
 var assert = require('assert');
-var helper = require('./helpers/helper');
 
 var url = 'mongodb://localhost:27017/data';
 
 router.get('/success', function(req, res, next){
   // Get sessionID from request cookies
+  console.log('success page in');
   var attendee;
   var cookie = req.headers.cookie;
   var sessionID;
@@ -40,12 +40,14 @@ router.get('/success', function(req, res, next){
   	  	console.log(attendeeObj);
   		db.close();
   		res.render('paypalSuccess', {name: attendee.firstname + ' ' + attendee.lastname});
+		console.log('success page out');
   	});
   });
 });
 
 router.get('/failure', function(req, res, next){
 	// Get sessionID from request cookies
+  console.log('fail page in');
   var attendee;
   var cookie = req.headers.cookie;
   var sessionID;
@@ -62,6 +64,9 @@ router.get('/failure', function(req, res, next){
       }
   }
 
+  console.log(sessionID);
+  console.log(typeof(sessionID));
+
   mongo.connect(url, function(err, db){
     assert.equal(null, err);
     db.collection('attendees').findAndModify(
@@ -73,6 +78,7 @@ router.get('/failure', function(req, res, next){
     .then(function(result){
       db.close();
       res.render('paypalFail');
+      console.log('fail page out');
     });
   });
 });
