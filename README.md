@@ -11,6 +11,7 @@ To deploy dev environment:<br>
 mongod --dbpath=./data
 nodemon
 ```
+Note: you must have a directory /data inside your repo
 
 If mongodb doesn't run:<br>
 ```
