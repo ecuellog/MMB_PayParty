@@ -44,7 +44,7 @@ function submitPaypal(language){
 			type: 'post',
 			data: $('#toNewattend').serialize(),
 			success: function(){
-                language == "spanish" ? alert("Seras redireccionado a la pagina de PayPal") : alert("You are about to be redirected to PayPal")
+                language == "spanish" ? alert("Seras redireccionado a la pagina de PayPal") : alert("You are about to be redirected to PayPal");
 				console.log("newattend added to database");
 			}
 		});
