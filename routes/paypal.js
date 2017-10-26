@@ -51,6 +51,9 @@ router.get('/failure', function(req, res, next){
   var attendee;
   var cookie = req.headers.cookie;
   var sessionID;
+	
+	console.log('cookie: ' + cookie);
+	console.log('type of cookie:' + typeof(cookie));
 
   var name = 'sessionID=';
   var ca = cookie.split(';');

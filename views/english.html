@@ -2,96 +2,96 @@
 <html>
 	<head>
 		<title> MM - Bacherlor/ette Party </title>
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	<body class="page-background" onload="setCookie('sessionID','<%- sessionID %>', 1); sessionIdToForms('english');">
 		<script src="https://unpkg.com/vue"></script>
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/public/style.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Metrophobic" />
 
-    <div class='container-fluid'>
-      <div id='navigation-bar'></div>
-      <div id='countdown' class='global-font btn-div'></div>
-      <div class='party-info'>
-        <p class='global-font'>
-          The countdown to the best bacherlor/bacherlorette party of the year at Punta Cana has started! Join Maria or Martin and have a bitchin' night on November 12, 2017. There are two options to choose from so read carefully and make your choice.
-        </p>
-        <div class="container">
-          <div class="row padding-bottom-50">
-            <div class="col-sm-6">
-              <h2 class='global-font'> Bacherlor/Bacherlorette Basic Package </h2>
-              <ul>
-                <li class='party-features global-font'>Hotel pick-up in Party Bus</li>
-                <li class='party-features global-font'>Open bar and live DJ on-board</li>
-                <li class='party-features global-font'>Host/Hostess with your group</li>
-                <li class='party-features global-font'>Party games</li>
-                <li class='party-features global-font'>Latino staff (security, bartender, waiter)</li>
-                <li class='party-features global-font'>Group photo Downtown Punta Cana</li>
-                <li class='party-features global-font'>Hotel return ride</li>
-              </ul>
-              <h3 class='global-font text-center'> Cost: $77 USD </h3>
-            </div>
-            <div class="col-sm-6">
-              <h2 class='global-font'> Bacherlor/Bacherlorette Plus Package </h2>
-              <ul>
-                <li class='party-features global-font'>Hotel pick-up in Party Bus</li>
-                <li class='party-features global-font'>Open bar and live DJ on-board</li>
-                <li class='party-features global-font'>Host/Hostess with your group</li>
-                <li class='party-features global-font'> Striptease show on-board</li>
-                <li class='party-features global-font'>Party games</li>
-                <li class='party-features global-font'>Latino staff (security, bartender, waiter)</li>
-                <li class='party-features global-font'>Group photo Downtown Punta Cana</li>
-                <li class='party-features global-font'> ORO nightclub at Hard Rock Hotel & Casino / CONGO bar (VIP, No cover charge, reserved table)</li>
-                <li class='party-features global-font'>Hotel return ride</li>
-              </ul>
-              <h3 class='global-font text-center'> Cost: $116 USD </h3>
-            </div>
-          </div>
-        </div>
-        <p class='global-font'>
-          The bacherlor and bacherlorette party buses will be separate but will reunite at the end of the night at the ORO nightclub. You can check out more info about the party <a href='https://www.partytourspuntacana.com'>here</a>. The Basic package is called Man Down/Siren and the Plus package is called Mamitas/Cowgirl.
-        </p>
-        <hr class='hr-index'>
-        <p class='global-font'> 
-          To attend the party, fill out your information and pay through PayPal by clicking the "Pay Now" button below (the PayPal payment adds a small fee for the PayPal services). <br> You can also send an interac transfer to <b>ecuellog@gmail.com</b> but you must also fill out your information so your name gets added to the list.
-        </p>
-        <div class='container'>
-          <div class='row'>
-            <div class='col-sm-6'>
-              <h2 class='global-font text-center'> PayPal </h2>
-              <div id='paypal-btn' class='text-center'></div>
-            </div>
-            <div class='col-sm-6'>
-              <h2 class='global-font text-center'> Interac E-transfer </h2>
-              <form method='POST' id='interac-english' action='/newattend' onsubmit='return validateForm("interac", "english")' class='global-font interac'>
-                First Name:<br>
-                <input class='font-black center-input' type='text' name='firstname'><br>
-                Last Name:<br>
-                <input class='font-black' type='text' name='lastname'><br><br>
-                <input id='sessionID' name='sessionID' type='hidden'>
-                Which party are you attending?<br>
-                <select class='font-black' name="party"> 
-                  <option value="bacherlor"> Bacherlor </option>
-                  <option value="bacherlorette"> Bacherlorette </option>
-                </select><br>
-                Select your party package<br>
-                <select class='font-black' name="party_package">
-                  <option value="Siren/Man Down"> Basic Package ($77) </option>
-                  <option value="Cowgirl/Mamitas" selected> Plus Package ($116) </option>
-                </select><br><br>
-                <input class='font-black' type='submit' value='Submit'>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id='footer'></div>
-    </div>
+		<div class='container-fluid'>
+			<div id='navigation-bar'></div>
+			<div id='countdown' class='global-font btn-div'></div>
+			<div class='party-info'>
+				<p class='global-font'>
+					The countdown to the best bacherlor/bacherlorette party of the year at Punta Cana has started! Join Maria or Martin and have a bitchin' night on November 12, 2017. There are two options to choose from so read carefully and make your choice.
+				</p>
+				<div class="container">
+					<div class="row padding-bottom-50">
+						<div class="col-sm-6">
+							<h2 class='global-font'> Bacherlor/Bacherlorette Basic Package </h2>
+							<ul>
+								<li class='party-features global-font'>Hotel pick-up in Party Bus</li>
+								<li class='party-features global-font'>Open bar and live DJ on-board</li>
+								<li class='party-features global-font'>Host/Hostess with your group</li>
+								<li class='party-features global-font'>Party games</li>
+								<li class='party-features global-font'>Latino staff (security, bartender, waiter)</li>
+								<li class='party-features global-font'>Group photo Downtown Punta Cana</li>
+								<li class='party-features global-font'>Hotel return ride</li>
+							</ul>
+							<h3 class='global-font text-center'> Cost: $77 USD </h3>
+						</div>
+						<div class="col-sm-6">
+							<h2 class='global-font'> Bacherlor/Bacherlorette Plus Package </h2>
+							<ul>
+								<li class='party-features global-font'>Hotel pick-up in Party Bus</li>
+								<li class='party-features global-font'>Open bar and live DJ on-board</li>
+								<li class='party-features global-font'>Host/Hostess with your group</li>
+								<li class='party-features global-font'> Striptease show on-board</li>
+								<li class='party-features global-font'>Party games</li>
+								<li class='party-features global-font'>Latino staff (security, bartender, waiter)</li>
+								<li class='party-features global-font'>Group photo Downtown Punta Cana</li>
+								<li class='party-features global-font'> ORO nightclub at Hard Rock Hotel & Casino / CONGO bar (VIP, No cover charge, reserved table)</li>
+								<li class='party-features global-font'>Hotel return ride</li>
+							</ul>
+							<h3 class='global-font text-center'> Cost: $116 USD </h3>
+						</div>
+					</div>
+				</div>
+				<p class='global-font'>
+					The bacherlor and bacherlorette party buses will be separate but will reunite at the end of the night at the ORO nightclub. You can check out more info about the party <a href='https://www.partytourspuntacana.com'>here</a>. The Basic package is called Man Down/Siren and the Plus package is called Mamitas/Cowgirl.
+				</p>
+				<hr class='hr-index'>
+				<p class='global-font'> 
+					To attend the party, fill out your information and pay through PayPal by clicking the "Pay Now" button below (the PayPal payment adds a small fee for the PayPal services). <br> You can also send an interac transfer to <b>ecuellog@gmail.com</b> but you must also fill out your information so your name gets added to the list.
+				</p>
+				<div class='container'>
+					<div class='row'>
+						<div class='col-sm-6'>
+							<h2 class='global-font text-center'> PayPal </h2>
+							<div id='paypal-btn' class='text-center'></div>
+						</div>
+						<div class='col-sm-6'>
+							<h2 class='global-font text-center'> Interac E-transfer </h2>
+							<form method='POST' id='interac-english' action='/newattend' onsubmit='return validateForm("interac", "english")' class='global-font interac'>
+								First Name:<br>
+								<input class='font-black center-input' type='text' name='firstname'><br>
+								Last Name:<br>
+								<input class='font-black' type='text' name='lastname'><br><br>
+								<input id='sessionID' name='sessionID' type='hidden'>
+								Which party are you attending?<br>
+								<select class='font-black' name="party"> 
+									<option value="bacherlor"> Bacherlor </option>
+									<option value="bacherlorette"> Bacherlorette </option>
+								</select><br>
+								Select your party package<br>
+								<select class='font-black' name="party_package">
+									<option value="Siren/Man Down"> Basic Package ($77) </option>
+									<option value="Cowgirl/Mamitas" selected> Plus Package ($116) </option>
+								</select><br><br>
+								<input class='font-black' type='submit' value='Submit'>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id='footer'></div>
+		</div>
 
-  	<script src="/public/js/vue.js" type="text/javascript"></script>
-  	<script src="/public/js/payvalidation.js" type="text/javascript"></script>
-  	<script src="/public/js/countdown.js" type="text/javascript"></script>
+		<script src="/public/js/vue.js" type="text/javascript"></script>
+		<script src="/public/js/payvalidation.js" type="text/javascript"></script>
+		<script src="/public/js/countdown.js" type="text/javascript"></script>
 	</body>
 </html>
