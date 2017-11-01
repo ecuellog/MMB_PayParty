@@ -1,6 +1,7 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 
 //routes
 var index = require('./routes/index.js');
@@ -20,9 +21,12 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js'))); // redirect bootstrap JS
 app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css'))); // redirect bootstrap CSS
 
-//bodyparser stuff
+//bodyparser setup
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//cookieparser setup
+app.use(cookieParser());
 
 //view engine setup
 app.set('views', path.join(__dirname, '/views'));

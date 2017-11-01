@@ -9,22 +9,7 @@ router.get('/success', function(req, res, next){
   // Get sessionID from request cookies
   console.log('success page in');
   var attendee;
-  var cookie = req.headers.cookie;
-  var sessionID;
-
-  var name = 'sessionID=';
-  var ca = cookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-          c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-          sessionID = c.substring(name.length, c.length);
-      }
-  }
-
-  console.log(sessionID);
+	var sessionID = req.cookies.sessionID;
 
   mongo.connect(url, function(err, db){
   	assert.equal(null, err);
@@ -49,26 +34,9 @@ router.get('/failure', function(req, res, next){
 	// Get sessionID from request cookies
   console.log('fail page in');
   var attendee;
-  var cookie = req.headers.cookie;
-  var sessionID;
+  var sessionID = req.cookies.sessionID;
 	
-	console.log('cookie: ' + cookie);
-	console.log('type of cookie:' + typeof(cookie));
-
-  var name = 'sessionID=';
-  var ca = cookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-          c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-          sessionID = c.substring(name.length, c.length);
-      }
-  }
-
-  console.log(sessionID);
-  console.log(typeof(sessionID));
+	console.log('sessionID: ' + sessionID);
 
   mongo.connect(url, function(err, db){
     assert.equal(null, err);
